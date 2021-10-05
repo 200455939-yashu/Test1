@@ -4,7 +4,7 @@ class CollegesController < ApplicationController
 
 	# GET /colleges or /colleges.json
 	def index
-		@colleges = College.all
+		@colleges = College.all.page(params[:page]).order('created_at DESC')
 		if @colleges.count < 1
 			load_data()
 		end
