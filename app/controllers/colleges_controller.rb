@@ -27,15 +27,16 @@ class CollegesController < ApplicationController
 	def create
     @college = College.new(college_params)
 
-    respond_to do |format|
-      if @college.save
-        format.html { redirect_to @college, notice: "Domain was successfully created." }
-        format.json { render :show, status: :created, location: @college }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @college.errors, status: :unprocessable_entity }
-      end
-    end
+	    respond_to do |format|
+	      if @college.save
+	        format.html { redirect_to @college, notice: "Domain was successfully created." }
+	        format.json { render :show, status: :created, location: @college }
+	      else
+	        format.html { render :new, status: :unprocessable_entity }
+	        format.json { render json: @college.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
 
  
 
